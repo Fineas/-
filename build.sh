@@ -1,3 +1,4 @@
+export SYSROOT=/root/libc_coverage/final_build
 gcc -static -fprofile-arcs -ftest-coverage \
         -L ${SYSROOT}/usr/lib64 \
         -I ${SYSROOT}/usr/include \
