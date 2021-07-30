@@ -12,3 +12,4 @@ dtest.o: dtest.c $(ALLOC_DEP)
 
 clean:
         rm -f dtest dtest.o
+
