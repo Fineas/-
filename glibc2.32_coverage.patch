@@ -200,8 +200,8 @@ index 735e99bb03..5d10340d05 100644
  */
 
  #ifndef MALLOC_DEBUG
--#define MALLOC_DEBUG 1
-+#define MALLOC_DEBUG 0
++#define MALLOC_DEBUG 1
+-#define MALLOC_DEBUG 0
  #endif
 
  #ifndef NDEBUG
@@ -211,10 +211,10 @@ index 735e99bb03..5d10340d05 100644
 
  #include <stdbool.h>
 
--#define SHARED 1
--#define MALLOC_DEBUG 2
--#define HAVE_TUNABLES 1
--
++#define SHARED 1
++#define MALLOC_DEBUG 2
++#define HAVE_TUNABLES 1
++
  #if HAVE_TUNABLES
  # define TUNABLE_NAMESPACE malloc
  #endif
@@ -224,8 +224,8 @@ index 735e99bb03..5d10340d05 100644
  /* Hooks for debugging versions.  The initial hooks just call the
     initialization routine, then do the normal work. */
 
--#define SHLIB_COMPAT 1
--
++#define SHLIB_COMPAT 1
++
  static void *
  malloc_hook_ini (size_t sz, const void *caller)
  {
