@@ -1,34 +1,7 @@
 diff --git a/malloc/arena.c b/malloc/arena.c
-index cecdb7f4..07d719ce 100644
+index cecdb7f4..5f9334b2 100644
 --- a/malloc/arena.c
 +++ b/malloc/arena.c
-@@ -19,7 +19,7 @@
-
- #include <stdbool.h>
-
--#if HAVE_TUNABLES
-+#ifdef HAVE_TUNABLES
- # define TUNABLE_NAMESPACE malloc
- #endif
- #include <elf/dl-tunables.h>
-@@ -206,7 +206,7 @@ __malloc_fork_unlock_child (void)
-   __libc_lock_init (list_lock);
- }
-
--#if HAVE_TUNABLES
-+#ifdef HAVE_TUNABLES
- void
- TUNABLE_CALLBACK (set_mallopt_check) (tunable_val_t *valp)
- {
-@@ -309,7 +309,7 @@ ptmalloc_init (void)
-
-   malloc_init_state (&main_arena);
-
--#if HAVE_TUNABLES
-+#ifdef HAVE_TUNABLES
-   TUNABLE_GET (check, int32_t, TUNABLE_CALLBACK (set_mallopt_check));
-   TUNABLE_GET (top_pad, size_t, TUNABLE_CALLBACK (set_top_pad));
-   TUNABLE_GET (perturb, int32_t, TUNABLE_CALLBACK (set_perturb_byte));
 @@ -419,13 +419,13 @@ dump_heap (heap_info *heap)
                     ~MALLOC_ALIGN_MASK);
    for (;; )
