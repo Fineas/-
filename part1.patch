@@ -1,5 +1,5 @@
 diff --git a/elf/dl-tunables.h b/elf/dl-tunables.h
-index f05eb50c..6d862f07 100644
+index f05eb50c..5c563335 100644
 --- a/elf/dl-tunables.h
 +++ b/elf/dl-tunables.h
 @@ -23,7 +23,7 @@
@@ -7,7 +7,7 @@ index f05eb50c..6d862f07 100644
  #include <stdbool.h>
 
 -#if !HAVE_TUNABLES
-+#ifdef !HAVE_TUNABLES
++#if !defined(HAVE_TUNABLES)
  static inline void
  __always_inline
  __tunables_init (char **unused __attribute__ ((unused)))
