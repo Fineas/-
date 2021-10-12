@@ -194,8 +194,21 @@ index 735e99bb03..5d10340d05 100644
  @item --enable-static-pie
  Enable static position independent executable (static PIE) support.
  Static PIE is similar to static executable, but can be loaded at any
+diff --git a/elf/dl-tunables.h b/elf/dl-tunables.h
+index f05eb50c..6d862f07 100644
+--- a/elf/dl-tunables.h
++++ b/elf/dl-tunables.h
+@@ -23,7 +23,7 @@
+
+ #include <stdbool.h>
+
+-#if !HAVE_TUNABLES
++#ifdef !HAVE_TUNABLES
+ static inline void
+ __always_inline
+ __tunables_init (char **unused __attribute__ ((unused)))
 diff --git a/malloc/arena.c b/malloc/arena.c
-index cecdb7f4..0be4f2d6 100644
+index cecdb7f4..8ecd346c 100644
 --- a/malloc/arena.c
 +++ b/malloc/arena.c
 @@ -19,6 +19,9 @@
