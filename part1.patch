@@ -1,0 +1,56 @@
+diff --git a/malloc/arena.c b/malloc/arena.c
+index cecdb7f4..0be4f2d6 100644
+--- a/malloc/arena.c
++++ b/malloc/arena.c
+@@ -19,6 +19,9 @@
+
+ #include <stdbool.h>
+
++#define SHARED
++#define HAVE_TUNABLES
++
+ #if HAVE_TUNABLES
+ # define TUNABLE_NAMESPACE malloc
+ #endif
+@@ -419,13 +422,13 @@ dump_heap (heap_info *heap)
+                    ~MALLOC_ALIGN_MASK);
+   for (;; )
+     {
+-      fprintf (stderr, "chunk %p size %10lx", p, (long) p->size);
++      fprintf (stderr, "chunk %p size %10lx", p, (long) chunksize_nomask(p));
+       if (p == top (heap->ar_ptr))
+         {
+           fprintf (stderr, " (top)\n");
+           break;
+         }
+-      else if (p->size == (0 | PREV_INUSE))
++      else if ((long) chunksize_nomask(p) == (0 | PREV_INUSE))
+         {
+           fprintf (stderr, " (fence)\n");
+           break;
+diff --git a/malloc/hooks.c b/malloc/hooks.c
+index a2b93e54..0fc2ac3e 100644
+--- a/malloc/hooks.c
++++ b/malloc/hooks.c
+@@ -24,6 +24,8 @@
+ /* Hooks for debugging versions.  The initial hooks just call the
+    initialization routine, then do the normal work. */
+
++#include "shlib-compat.h"
++
+ static void *
+ malloc_hook_ini (size_t sz, const void *caller)
+ {
+diff --git a/malloc/malloc.c b/malloc/malloc.c
+index ee87ddbb..5aa9f6b1 100644
+--- a/malloc/malloc.c
++++ b/malloc/malloc.c
+@@ -276,7 +276,7 @@
+ */
+
+ #ifndef MALLOC_DEBUG
+-#define MALLOC_DEBUG 0
++#define MALLOC_DEBUG 2
+ #endif
+
+ #ifndef NDEBUG
