@@ -203,7 +203,7 @@ index cecdb7f4..0be4f2d6 100644
  #include <stdbool.h>
 
 +#define SHARED
-+#define HAVE_TUNABLES
++#define HAVE_TUNABLES 1
 +
  #if HAVE_TUNABLES
  # define TUNABLE_NAMESPACE malloc
