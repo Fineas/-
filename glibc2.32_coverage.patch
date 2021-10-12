@@ -195,35 +195,34 @@ index 735e99bb03..5d10340d05 100644
  Enable static position independent executable (static PIE) support.
  Static PIE is similar to static executable, but can be loaded at any
 diff --git a/malloc/arena.c b/malloc/arena.c
-index cecdb7f4..8f76b798 100644
+index cecdb7f4..d546be18 100644
 --- a/malloc/arena.c
 +++ b/malloc/arena.c
-@@ -19,6 +19,10 @@
+@@ -19,6 +19,9 @@
 
  #include <stdbool.h>
 
 +#define SHARED 1
-+#define MALLOC_DEBUG 2
 +#define HAVE_TUNABLES 1
 +
  #if HAVE_TUNABLES
  # define TUNABLE_NAMESPACE malloc
  #endif
 diff --git a/malloc/hooks.c b/malloc/hooks.c
-index a2b93e54..90df040b 100644
+index a2b93e54..0fc2ac3e 100644
 --- a/malloc/hooks.c
 +++ b/malloc/hooks.c
 @@ -24,6 +24,8 @@
  /* Hooks for debugging versions.  The initial hooks just call the
     initialization routine, then do the normal work. */
 
-+#define SHLIB_COMPAT 1
++#include "shlib-compat.h"
 +
  static void *
  malloc_hook_ini (size_t sz, const void *caller)
  {
 diff --git a/malloc/malloc.c b/malloc/malloc.c
-index ee87ddbb..70a0b9f1 100644
+index ee87ddbb..5aa9f6b1 100644
 --- a/malloc/malloc.c
 +++ b/malloc/malloc.c
 @@ -276,7 +276,7 @@
@@ -231,7 +230,7 @@ index ee87ddbb..70a0b9f1 100644
 
  #ifndef MALLOC_DEBUG
 -#define MALLOC_DEBUG 0
-+#define MALLOC_DEBUG 1
++#define MALLOC_DEBUG 2
  #endif
 
  #ifndef NDEBUG
