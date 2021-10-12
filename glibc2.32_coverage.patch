@@ -1,13 +1,13 @@
 diff --git a/malloc/arena.c b/malloc/arena.c
-index cecdb7f4..88636c44 100644
+index cecdb7f4..0be4f2d6 100644
 --- a/malloc/arena.c
 +++ b/malloc/arena.c
 @@ -19,6 +19,9 @@
 
  #include <stdbool.h>
 
-+#define SHARED 1
-+#define HAVE_TUNABLES 1
++#define SHARED
++#define HAVE_TUNABLES
 +
  #if HAVE_TUNABLES
  # define TUNABLE_NAMESPACE malloc
