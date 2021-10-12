@@ -18,19 +18,6 @@ index cecdb7f4..5f9334b2 100644
          {
            fprintf (stderr, " (fence)\n");
            break;
-diff --git a/malloc/hooks.c b/malloc/hooks.c
-index a2b93e54..0fc2ac3e 100644
---- a/malloc/hooks.c
-+++ b/malloc/hooks.c
-@@ -24,6 +24,8 @@
- /* Hooks for debugging versions.  The initial hooks just call the
-    initialization routine, then do the normal work. */
-
-+#include "shlib-compat.h"
-+
- static void *
- malloc_hook_ini (size_t sz, const void *caller)
- {
 diff --git a/malloc/malloc.c b/malloc/malloc.c
 index ee87ddbb..5aa9f6b1 100644
 --- a/malloc/malloc.c
