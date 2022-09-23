@@ -5,6 +5,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 
 RUN rustup component add rustfmt
 
+RUN apt-get install -y lib32z1 xinetd
 RUN useradd -d /home/pwn -u 8888 -m pwn
 COPY ./xinetd /etc/xinetd.d/xinetd
 COPY ./share /home/pwn/
