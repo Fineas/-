@@ -1,0 +1,42 @@
+diff --git a/malloc/arena.c b/malloc/arena.c
+index cecdb7f4..5f9334b2 100644
+--- a/malloc/arena.c
++++ b/malloc/arena.c
+@@ -419,13 +419,13 @@ dump_heap (heap_info *heap)
+                    ~MALLOC_ALIGN_MASK);
+   for (;; )
+     {
+-      fprintf (stderr, "chunk %p size %10lx", p, (long) p->size);
++      fprintf (stderr, "chunk %p size %10lx", p, (long) chunksize_nomask(p));
+       if (p == top (heap->ar_ptr))
+         {
+           fprintf (stderr, " (top)\n");
+           break;
+         }
+-      else if (p->size == (0 | PREV_INUSE))
++      else if ((long) chunksize_nomask(p) == (0 | PREV_INUSE))
+         {
+           fprintf (stderr, " (fence)\n");
+           break;
+diff --git a/malloc/malloc.c b/malloc/malloc.c
+index ee87ddbb..5aa9f6b1 100644
+--- a/malloc/malloc.c
++++ b/malloc/malloc.c
+@@ -276,7 +276,7 @@
+ */
+
+ #ifndef MALLOC_DEBUG
+-#define MALLOC_DEBUG 0
++#define MALLOC_DEBUG 2
+ #endif
+
+ #ifndef NDEBUG
+@@ -1779,7 +1779,7 @@ static struct malloc_par mp_ =
+   .n_mmaps_max = DEFAULT_MMAP_MAX,
+   .mmap_threshold = DEFAULT_MMAP_THRESHOLD,
+   .trim_threshold = DEFAULT_TRIM_THRESHOLD,
+-#define NARENAS_FROM_NCORES(n) 5
++#define NARENAS_FROM_NCORES(n) ((n) * (sizeof (long) == 4 ? 2 : 8))
+   .arena_test = NARENAS_FROM_NCORES (1)
+ #if USE_TCACHE
+   ,

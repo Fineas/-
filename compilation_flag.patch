@@ -1,0 +1,75 @@
+--- ../SHARED/configure	2021-09-07 23:13:14.167028594 +0000
++++ ./configure	2021-08-31 20:05:39.000000000 +0000
+@@ -2775,13 +2775,13 @@
+   CFLAGS=$ac_save_CFLAGS
+ elif test $ac_cv_prog_cc_g = yes; then
+   if test "$GCC" = yes; then
+-    CFLAGS="-g -O0"
++    CFLAGS="-g -O2"
+   else
+     CFLAGS="-g"
+   fi
+ else
+   if test "$GCC" = yes; then
+-    CFLAGS="-O0"
++    CFLAGS="-O2"
+   else
+     CFLAGS=
+   fi
+@@ -3180,13 +3180,13 @@
+   CXXFLAGS=$ac_save_CXXFLAGS
+ elif test $ac_cv_prog_cxx_g = yes; then
+   if test "$GXX" = yes; then
+-    CXXFLAGS="-g -O0"
++    CXXFLAGS="-g -O2"
+   else
+     CXXFLAGS="-g"
+   fi
+ else
+   if test "$GXX" = yes; then
+-    CXXFLAGS="-O0"
++    CXXFLAGS="-O2"
+   else
+     CXXFLAGS=
+   fi
+@@ -6198,7 +6198,7 @@
+   __builtin_memset (x, 0, 1000);
+ }
+ EOF
+-if { ac_try='${CC-cc} -O0 -S conftest.c -o - | grep -F "memset" > /dev/null'
++if { ac_try='${CC-cc} -O3 -S conftest.c -o - | grep -F "memset" > /dev/null'
+   { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
+   (eval $ac_try) 2>&5
+   ac_status=$?
+@@ -6230,7 +6230,7 @@
+   return __builtin_strstr (a, b);
+ }
+ EOF
+-if { ac_try='${CC-cc} -O0 -S conftest.c -o - | grep -F "my_strstr" > /dev/null'
++if { ac_try='${CC-cc} -O3 -S conftest.c -o - | grep -F "my_strstr" > /dev/null'
+   { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
+   (eval $ac_try) 2>&5
+   ac_status=$?
+@@ -7711,7 +7711,7 @@
+ _ACAWK
+ cat >>"\$ac_tmp/subs1.awk" <<_ACAWK &&
+   for (key in S) S_is_set[key] = 1
+-  FS = ""
++  FS = ""
+ 
+ }
+ {
+@@ -7843,7 +7843,7 @@
+ 
+ cat >>$CONFIG_STATUS <<_ACEOF || ac_write_fail=1
+   for (key in D) D_is_set[key] = 1
+-  FS = ""
++  FS = ""
+ }
+ /^[\t ]*#[\t ]*(define|undef)[\t ]+$ac_word_re([\t (]|\$)/ {
+   line = \$ 0
+@@ -8313,4 +8313,3 @@
+ $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
+ fi
+ 
+-
