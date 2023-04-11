@@ -1,0 +1,21 @@
+[sandbox] PARENT - sui verifier
+[Parent] fork_id = :802810A6C969B72B
+[Parent] occurs = 
+[Parent]
+[Parent] occurs = :802810A6C969B72B
+[Parent] current_exe = "/root/Rust-Sandbox/sandbox/target/debug/sandbox"
+[Parent] out = Output {
+    status: ExitStatus(
+        ExitStatus {
+            value: 101,
+            kind: Exited,
+        },
+    ),
+    stdout: "[sandbox] CHILD\n[Parent] fork_id = :2093C2E2E3568D68\n[Parent] occurs = :802810A6C969B72B\n[Parent]\n[Parent] occurs = :802810A6C969B72B:2093C2E2E3568D68\n[Parent] current_exe = \"/root/Rust-Sandbox/sandbox/target/debug/sandbox\"\n[Parent] out = Output {\n    status: ExitStatus(\n        ExitStatus {\n            value: 70,\n            kind: Exited,\n        },\n    ),\n    stdout: \"[sandbox] CHILD\\n[Parent] fork_id = :2093C2E2E3568D68\\n[Parent] occurs = :802810A6C969B72B:2093C2E2E3568D68\\n[Child]\\n\",\n    stderr: \"thread \\\'main\\\' panicked at \\\'called `Result::unwrap()` on an `Err` value: PartialVMError { major_status: BAD_MAGIC, sub_status: None, message: None, exec_state: None, indices: [], offsets: [] }\\\', src/main.rs:174:63\\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\\n\",\n}\nRes= Output {\n    status: ExitStatus(\n        ExitStatus {\n            value: 70,\n            kind: Exited,\n        },\n    ),\n    stdout: \"[sandbox] CHILD\\n[Parent] fork_id = :2093C2E2E3568D68\\n[Parent] occurs = :802810A6C969B72B:2093C2E2E3568D68\\n[Child]\\n\",\n    stderr: \"thread \\\'main\\\' panicked at \\\'called `Result::unwrap()` on an `Err` value: PartialVMError { major_status: BAD_MAGIC, sub_status: None, message: None, exec_state: None, indices: [], offsets: [] }\\\', src/main.rs:174:63\\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\\n\",\n}\n",
+    stderr: "thread \'main\' panicked at \'assertion failed: res.status.success()\', src/main.rs:182:13\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+}
+Sandbox Output = ExitStatus(
+    unix_wait_status(
+        25856,
+    ),
+)

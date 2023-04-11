@@ -1,0 +1,2886 @@
+I'm here baby, inside compiled_packages.rs, build_from_resolution_graph()
+"."
+ResolvedGraph {
+    graph: DependencyGraph {
+        root_path: ".",
+        root_package: "example2",
+        package_graph: {
+            "example2": [
+                (
+                    "Sui",
+                    Outgoing,
+                ),
+            ],
+            "Sui": [
+                (
+                    "MoveStdlib",
+                    Outgoing,
+                ),
+                (
+                    "example2",
+                    Incoming,
+                ),
+            ],
+            "MoveStdlib": [
+                (
+                    "Sui",
+                    Incoming,
+                ),
+            ],
+        },
+        package_table: {
+            "MoveStdlib": Package {
+                kind: Git(
+                    GitInfo {
+                        git_url: "https://github.com/MystenLabs/sui.git",
+                        git_rev: "devnet",
+                        subdir: "crates/sui-framework/packages/move-stdlib",
+                    },
+                ),
+                version: None,
+                resolver: None,
+            },
+            "Sui": Package {
+                kind: Git(
+                    GitInfo {
+                        git_url: "https://github.com/MystenLabs/sui.git",
+                        git_rev: "devnet",
+                        subdir: "crates/sui-framework/packages/sui-framework",
+                    },
+                ),
+                version: None,
+                resolver: None,
+            },
+        },
+        always_deps: {
+            "MoveStdlib",
+            "Sui",
+            "example2",
+        },
+    },
+    build_options: BuildConfig {
+        dev_mode: false,
+        test_mode: false,
+        generate_docs: false,
+        generate_abis: false,
+        install_dir: None,
+        force_recompilation: false,
+        lock_file: Some(
+            "./Move.lock",
+        ),
+        additional_named_addresses: {},
+        architecture: None,
+        fetch_deps_only: false,
+        skip_fetch_latest_git_deps: false,
+    },
+    package_table: {
+        "MoveStdlib": Package {
+            source_package: SourceManifest {
+                package: PackageInfo {
+                    name: "MoveStdlib",
+                    version: (
+                        1,
+                        5,
+                        0,
+                    ),
+                    authors: [],
+                    license: None,
+                    custom_properties: {
+                        "published-at": "0x1",
+                    },
+                },
+                addresses: Some(
+                    {
+                        "std": Some(
+                            0000000000000000000000000000000000000000000000000000000000000001,
+                        ),
+                    },
+                ),
+                dev_address_assignments: None,
+                build: None,
+                dependencies: {},
+                dev_dependencies: {},
+            },
+            package_path: "/root/.move/https___github_com_MystenLabs_sui_git_devnet/crates/sui-framework/packages/move-stdlib",
+            renaming: {},
+            resolved_table: {
+                "std": 0000000000000000000000000000000000000000000000000000000000000001,
+            },
+            source_digest: "B0A9790623DEBE48C781A066CAC8712DACAF6683D0E34E35BB4B83C82621EA07",
+        },
+        "Sui": Package {
+            source_package: SourceManifest {
+                package: PackageInfo {
+                    name: "Sui",
+                    version: (
+                        0,
+                        0,
+                        1,
+                    ),
+                    authors: [],
+                    license: None,
+                    custom_properties: {
+                        "published-at": "0x2",
+                    },
+                },
+                addresses: Some(
+                    {
+                        "sui": Some(
+                            0000000000000000000000000000000000000000000000000000000000000002,
+                        ),
+                    },
+                ),
+                dev_address_assignments: None,
+                build: None,
+                dependencies: {
+                    "MoveStdlib": Internal(
+                        InternalDependency {
+                            kind: Local(
+                                "../move-stdlib",
+                            ),
+                            subst: None,
+                            version: None,
+                            digest: None,
+                        },
+                    ),
+                },
+                dev_dependencies: {},
+            },
+            package_path: "/root/.move/https___github_com_MystenLabs_sui_git_devnet/crates/sui-framework/packages/sui-framework",
+            renaming: {},
+            resolved_table: {
+                "std": 0000000000000000000000000000000000000000000000000000000000000001,
+                "sui": 0000000000000000000000000000000000000000000000000000000000000002,
+            },
+            source_digest: "1909AF34C6921D113540FCEBF0B6D4677ABB46E52A6C984E151D27334FF20FC4",
+        },
+        "example2": Package {
+            source_package: SourceManifest {
+                package: PackageInfo {
+                    name: "example2",
+                    version: (
+                        0,
+                        0,
+                        1,
+                    ),
+                    authors: [],
+                    license: None,
+                    custom_properties: {},
+                },
+                addresses: Some(
+                    {
+                        "example2": Some(
+                            0000000000000000000000000000000000000000000000000000000000000000,
+                        ),
+                    },
+                ),
+                dev_address_assignments: None,
+                build: None,
+                dependencies: {
+                    "Sui": Internal(
+                        InternalDependency {
+                            kind: Git(
+                                GitInfo {
+                                    git_url: "https://github.com/MystenLabs/sui.git",
+                                    git_rev: "devnet",
+                                    subdir: "crates/sui-framework/packages/sui-framework",
+                                },
+                            ),
+                            subst: None,
+                            version: None,
+                            digest: None,
+                        },
+                    ),
+                },
+                dev_dependencies: {},
+            },
+            package_path: ".",
+            renaming: {},
+            resolved_table: {
+                "example2": 0000000000000000000000000000000000000000000000000000000000000000,
+                "std": 0000000000000000000000000000000000000000000000000000000000000001,
+                "sui": 0000000000000000000000000000000000000000000000000000000000000002,
+            },
+            source_digest: "BF69588740222D7A6F059304AE0C2FBAF645C51B8036B9305B0FEB972F750544",
+        },
+    },
+}
+I'm here baby, inside verifier.rs, verify_module()
+CompiledModule {
+    version: 6,
+    self_module_handle_idx: ModuleHandleIndex(0),
+    module_handles: [
+        ModuleHandle {
+            address: AddressIdentifierIndex(0),
+            name: IdentifierIndex(18),
+        },
+        ModuleHandle {
+            address: AddressIdentifierIndex(1),
+            name: IdentifierIndex(8),
+        },
+        ModuleHandle {
+            address: AddressIdentifierIndex(1),
+            name: IdentifierIndex(9),
+        },
+        ModuleHandle {
+            address: AddressIdentifierIndex(1),
+            name: IdentifierIndex(17),
+        },
+        ModuleHandle {
+            address: AddressIdentifierIndex(1),
+            name: IdentifierIndex(21),
+        },
+        ModuleHandle {
+            address: AddressIdentifierIndex(1),
+            name: IdentifierIndex(22),
+        },
+        ModuleHandle {
+            address: AddressIdentifierIndex(1),
+            name: IdentifierIndex(24),
+        },
+    ],
+    struct_handles: [
+        StructHandle {
+            module: ModuleHandleIndex(0),
+            name: IdentifierIndex(2),
+            abilities: [Key, ],
+            type_parameters: [],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(0),
+            name: IdentifierIndex(5),
+            abilities: [Key, ],
+            type_parameters: [],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(0),
+            name: IdentifierIndex(3),
+            abilities: [Key, ],
+            type_parameters: [],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(1),
+            name: IdentifierIndex(0),
+            abilities: [Store, ],
+            type_parameters: [
+                StructTypeParameter {
+                    constraints: [],
+                    is_phantom: true,
+                },
+            ],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(2),
+            name: IdentifierIndex(1),
+            abilities: [Store, Key, ],
+            type_parameters: [
+                StructTypeParameter {
+                    constraints: [],
+                    is_phantom: true,
+                },
+            ],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(3),
+            name: IdentifierIndex(7),
+            abilities: [Store, ],
+            type_parameters: [],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(4),
+            name: IdentifierIndex(4),
+            abilities: [Drop, ],
+            type_parameters: [],
+        },
+        StructHandle {
+            module: ModuleHandleIndex(6),
+            name: IdentifierIndex(6),
+            abilities: [Drop, ],
+            type_parameters: [],
+        },
+    ],
+    function_handles: [
+        FunctionHandle {
+            module: ModuleHandleIndex(0),
+            name: IdentifierIndex(12),
+            parameters: SignatureIndex(0),
+            return_: SignatureIndex(1),
+            type_parameters: [],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(0),
+            name: IdentifierIndex(14),
+            parameters: SignatureIndex(2),
+            return_: SignatureIndex(1),
+            type_parameters: [],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(0),
+            name: IdentifierIndex(23),
+            parameters: SignatureIndex(3),
+            return_: SignatureIndex(1),
+            type_parameters: [],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(1),
+            name: IdentifierIndex(15),
+            parameters: SignatureIndex(17),
+            return_: SignatureIndex(15),
+            type_parameters: [
+                [],
+            ],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(1),
+            name: IdentifierIndex(26),
+            parameters: SignatureIndex(1),
+            return_: SignatureIndex(10),
+            type_parameters: [
+                [],
+            ],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(2),
+            name: IdentifierIndex(13),
+            parameters: SignatureIndex(16),
+            return_: SignatureIndex(10),
+            type_parameters: [
+                [],
+            ],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(2),
+            name: IdentifierIndex(25),
+            parameters: SignatureIndex(14),
+            return_: SignatureIndex(15),
+            type_parameters: [
+                [],
+            ],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(3),
+            name: IdentifierIndex(16),
+            parameters: SignatureIndex(0),
+            return_: SignatureIndex(4),
+            type_parameters: [],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(5),
+            name: IdentifierIndex(20),
+            parameters: SignatureIndex(12),
+            return_: SignatureIndex(1),
+            type_parameters: [
+                [Key, ],
+            ],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(5),
+            name: IdentifierIndex(22),
+            parameters: SignatureIndex(8),
+            return_: SignatureIndex(1),
+            type_parameters: [
+                [Key, ],
+            ],
+        },
+        FunctionHandle {
+            module: ModuleHandleIndex(6),
+            name: IdentifierIndex(19),
+            parameters: SignatureIndex(5),
+            return_: SignatureIndex(6),
+            type_parameters: [],
+        },
+    ],
+    field_handles: [
+        FieldHandle {
+            owner: StructDefinitionIndex(2),
+            field: 2,
+        },
+        FieldHandle {
+            owner: StructDefinitionIndex(2),
+            field: 1,
+        },
+    ],
+    friend_decls: [],
+    struct_def_instantiations: [],
+    function_instantiations: [
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(9),
+            type_parameters: SignatureIndex(7),
+        },
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(4),
+            type_parameters: SignatureIndex(9),
+        },
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(8),
+            type_parameters: SignatureIndex(11),
+        },
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(9),
+            type_parameters: SignatureIndex(13),
+        },
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(6),
+            type_parameters: SignatureIndex(9),
+        },
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(5),
+            type_parameters: SignatureIndex(9),
+        },
+        FunctionInstantiation {
+            handle: FunctionHandleIndex(3),
+            type_parameters: SignatureIndex(9),
+        },
+    ],
+    field_instantiations: [],
+    signatures: [
+        Signature(
+            [
+                MutableReference(Struct(StructHandleIndex(7))),
+            ],
+        ),
+        Signature(
+            [],
+        ),
+        Signature(
+            [
+                Reference(Struct(StructHandleIndex(0))),
+                Address,
+                MutableReference(Struct(StructHandleIndex(7))),
+            ],
+        ),
+        Signature(
+            [
+                MutableReference(Struct(StructHandleIndex(2))),
+                Struct(StructHandleIndex(1)),
+                StructInstantiation(StructHandleIndex(4), [Struct(StructHandleIndex(6))]),
+                Address,
+            ],
+        ),
+        Signature(
+            [
+                Struct(StructHandleIndex(5)),
+            ],
+        ),
+        Signature(
+            [
+                Reference(Struct(StructHandleIndex(7))),
+            ],
+        ),
+        Signature(
+            [
+                Address,
+            ],
+        ),
+        Signature(
+            [
+                Struct(StructHandleIndex(0)),
+            ],
+        ),
+        Signature(
+            [
+                TypeParameter(0),
+                Address,
+            ],
+        ),
+        Signature(
+            [
+                Struct(StructHandleIndex(6)),
+            ],
+        ),
+        Signature(
+            [
+                StructInstantiation(StructHandleIndex(3), [TypeParameter(0)]),
+            ],
+        ),
+        Signature(
+            [
+                Struct(StructHandleIndex(2)),
+            ],
+        ),
+        Signature(
+            [
+                TypeParameter(0),
+            ],
+        ),
+        Signature(
+            [
+                Struct(StructHandleIndex(1)),
+            ],
+        ),
+        Signature(
+            [
+                Reference(StructInstantiation(StructHandleIndex(4), [TypeParameter(0)])),
+            ],
+        ),
+        Signature(
+            [
+                U64,
+            ],
+        ),
+        Signature(
+            [
+                StructInstantiation(StructHandleIndex(4), [TypeParameter(0)]),
+            ],
+        ),
+        Signature(
+            [
+                MutableReference(StructInstantiation(StructHandleIndex(3), [TypeParameter(0)])),
+                StructInstantiation(StructHandleIndex(3), [TypeParameter(0)]),
+            ],
+        ),
+    ],
+    identifiers: [
+        Identifier(
+            "Balance",
+        ),
+        Identifier(
+            "Coin",
+        ),
+        Identifier(
+            "GovernmentCapability",
+        ),
+        Identifier(
+            "LandRegistry",
+        ),
+        Identifier(
+            "SUI",
+        ),
+        Identifier(
+            "TitleDeed",
+        ),
+        Identifier(
+            "TxContext",
+        ),
+        Identifier(
+            "UID",
+        ),
+        Identifier(
+            "balance",
+        ),
+        Identifier(
+            "coin",
+        ),
+        Identifier(
+            "fee",
+        ),
+        Identifier(
+            "id",
+        ),
+        Identifier(
+            "init",
+        ),
+        Identifier(
+            "into_balance",
+        ),
+        Identifier(
+            "issue_title_deed",
+        ),
+        Identifier(
+            "join",
+        ),
+        Identifier(
+            "new",
+        ),
+        Identifier(
+            "object",
+        ),
+        Identifier(
+            "restricted_transfer",
+        ),
+        Identifier(
+            "sender",
+        ),
+        Identifier(
+            "share_object",
+        ),
+        Identifier(
+            "sui",
+        ),
+        Identifier(
+            "transfer",
+        ),
+        Identifier(
+            "transfer_ownership",
+        ),
+        Identifier(
+            "tx_context",
+        ),
+        Identifier(
+            "value",
+        ),
+        Identifier(
+            "zero",
+        ),
+    ],
+    address_identifiers: [
+        0000000000000000000000000000000000000000000000000000000000000000,
+        0000000000000000000000000000000000000000000000000000000000000002,
+    ],
+    constant_pool: [
+        Constant {
+            type_: U64,
+            data: [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+            ],
+        },
+    ],
+    metadata: [],
+    struct_defs: [
+        StructDefinition {
+            struct_handle: StructHandleIndex(0),
+            field_information: Declared(
+                [
+                    FieldDefinition {
+                        name: IdentifierIndex(11),
+                        signature: TypeSignature(
+                            Struct(StructHandleIndex(5)),
+                        ),
+                    },
+                ],
+            ),
+        },
+        StructDefinition {
+            struct_handle: StructHandleIndex(1),
+            field_information: Declared(
+                [
+                    FieldDefinition {
+                        name: IdentifierIndex(11),
+                        signature: TypeSignature(
+                            Struct(StructHandleIndex(5)),
+                        ),
+                    },
+                ],
+            ),
+        },
+        StructDefinition {
+            struct_handle: StructHandleIndex(2),
+            field_information: Declared(
+                [
+                    FieldDefinition {
+                        name: IdentifierIndex(11),
+                        signature: TypeSignature(
+                            Struct(StructHandleIndex(5)),
+                        ),
+                    },
+                    FieldDefinition {
+                        name: IdentifierIndex(8),
+                        signature: TypeSignature(
+                            StructInstantiation(StructHandleIndex(3), [Struct(StructHandleIndex(6))]),
+                        ),
+                    },
+                    FieldDefinition {
+                        name: IdentifierIndex(10),
+                        signature: TypeSignature(
+                            U64,
+                        ),
+                    },
+                ],
+            ),
+        },
+    ],
+    function_defs: [
+        FunctionDefinition {
+            function: FunctionHandleIndex(0),
+            visibility: Private,
+            is_entry: false,
+            acquires_global_resources: [],
+            code: Some(
+                CodeUnit {
+                    locals: SignatureIndex(1),
+                    code: [
+                        CopyLoc(0),
+                        Call(7),
+                        Pack(0),
+                        CopyLoc(0),
+                        FreezeRef,
+                        Call(10),
+                        CallGeneric(0),
+                        MoveLoc(0),
+                        Call(7),
+                        CallGeneric(1),
+                        LdU64(10000),
+                        Pack(2),
+                        CallGeneric(2),
+                        Ret,
+                    ],
+                },
+            ),
+        },
+        FunctionDefinition {
+            function: FunctionHandleIndex(1),
+            visibility: Public,
+            is_entry: true,
+            acquires_global_resources: [],
+            code: Some(
+                CodeUnit {
+                    locals: SignatureIndex(1),
+                    code: [
+                        MoveLoc(2),
+                        Call(7),
+                        Pack(1),
+                        MoveLoc(1),
+                        CallGeneric(3),
+                        Ret,
+                    ],
+                },
+            ),
+        },
+        FunctionDefinition {
+            function: FunctionHandleIndex(2),
+            visibility: Public,
+            is_entry: true,
+            acquires_global_resources: [],
+            code: Some(
+                CodeUnit {
+                    locals: SignatureIndex(1),
+                    code: [
+                        ImmBorrowLoc(2),
+                        CallGeneric(4),
+                        CopyLoc(0),
+                        ImmBorrowField(FieldHandleIndex(0)),
+                        ReadRef,
+                        Eq,
+                        BrFalse(8),
+                        Branch(12),
+                        MoveLoc(0),
+                        Pop,
+                        LdConst(0),
+                        Abort,
+                        MoveLoc(0),
+                        MutBorrowField(FieldHandleIndex(1)),
+                        MoveLoc(2),
+                        CallGeneric(5),
+                        CallGeneric(6),
+                        Pop,
+                        MoveLoc(1),
+                        MoveLoc(3),
+                        CallGeneric(3),
+                        Ret,
+                    ],
+                },
+            ),
+        },
+    ],
+}
+{
+    FnInfoKey {
+        fn_name: "add",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "add_child_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "add_internal",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "add_multiple",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "add_receipt",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "add_rule",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "add_to_balance",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "additive_policy",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "all_characters_printable",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "append",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "append_utf8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "as_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "authorize_upgrade",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "back",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "balance",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "balance_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "blake2b256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "bls12381",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "bls12381_min_pk_verify",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "bls12381_min_sig_verify",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "bn254",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_child_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_child_object_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_id",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_uid",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "borrow_with_default",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "burn",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "burn_publisher",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "byte",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "char",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "claim",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "claim_and_keep",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "clock",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "close_and_withdraw",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "commit_upgrade",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "compatible_policy",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "confirm_request",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "consensus_commit_prologue",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "contains",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "contains",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "contains_with_type",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_and_keep",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_currency",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_entries",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_from_rational",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_from_raw_value",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_internal",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_staking_rewards",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "create_supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "decode",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "decode_byte",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "decompress_pubkey",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "decrease_supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "delete",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "delete_impl",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "dep_only_policy",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "derive_id",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_and_withdraw",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_empty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_empty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_none",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_some",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_storage_rebates",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_with_default",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "destroy_zero",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "diff",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "divide_and_keep",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "divide_and_round_up",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "divide_into_n",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "divide_u64",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "drop",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "ecvrf_verify",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "ed25519_verify",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "edit",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "emit",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "empty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "empty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "encode",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "epoch",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "epoch_timestamp_ms",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "exists_",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "exists_with_type",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "extract",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "field_info",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "field_info_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "fields",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "fill",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "freeze_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "freeze_object_impl",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "fresh_object_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from_ascii",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from_balance",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from_module",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from_package",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "from_u256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "front",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_decimals",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_description",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_entry_by_idx",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_entry_by_idx_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_icon_url",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_idx",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_idx_opt",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_module",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_name",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_raw_value",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_rule",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_symbol",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "get_with_default",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "has_access",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "has_child_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "has_child_object_with_ty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "has_item",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "has_rule",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "hash_type_and_key",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "hmac_sha3_256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id_from_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id_from_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id_to_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "id_to_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "ids_created",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "increase_supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "index_of",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "init",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000000,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "inner_url",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "insert",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "insert",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "internal_check_utf8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "internal_index_of",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "internal_is_char_boundary",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "internal_sub_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "into_balance",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "into_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "into_keys",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "into_keys_values",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "into_remainder_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "into_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_authorized",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_empty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_empty",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_index_set",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_listed",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_listed_exclusively",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_locked",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_none",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_one_time_witness",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_printable_char",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_some",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_valid_char",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "is_zero",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "issue_title_deed",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000000,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "item",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "item_count",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "join",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "join_vec",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "join_vec_and_transfer",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "keccak256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "keep",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "keys",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "length",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "length",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "list",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "list_with_purchase_cap",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "load_value",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "load_value_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "lock",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "longest_set_sequence_starting_at",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "make_immutable",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "max",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "max_heapify_recursive",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "min",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "mint",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "mint_and_transfer",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "mint_balance",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "multiply_u64",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new_entry",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new_request",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new_uid_from_hash",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new_unsafe",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new_unsafe_from_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "new_with_fields",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "next",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "none",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "only_additive_upgrades",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "only_dep_upgrades",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "owner",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "paid",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_bool",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_option_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_option_bool",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_option_u128",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_option_u64",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_option_u8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_u128",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_u64",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_u8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_bool",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_length",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_u128",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_u64",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_u8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "peel_vec_vec_u8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "place",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "place_and_list",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pop",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pop_back",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pop_back",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pop_char",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pop_front",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pop_max",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pow",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "prepare_verifying_key",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "prepare_verifying_key_internal",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "prev",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "print",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "print_stack_trace",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "priorities",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "profits_amount",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "profits_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "proof_points_from_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "public_freeze_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "public_proof_inputs_from_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "public_share_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "public_transfer",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "published_module",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "published_package",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "purchase",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "purchase_cap_item",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "purchase_cap_kiosk",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "purchase_cap_min_price",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "purchase_with_cap",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "push_back",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "push_back",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "push_char",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "push_front",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "put",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "put_back",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pvk_from_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "pvk_to_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "receipt_cap",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "receipt_package",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "record_new_uid",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove_child_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove_entry_by_idx",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove_if_exists",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove_rule",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "remove_value_for_upgrade",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "restore_heap_recursive",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "restrict",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "return_purchase_cap",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "reverse",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "secp256k1_ecrecover",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "secp256k1_verify",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "secp256r1_ecrecover",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "secp256r1_verify",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sender",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "set",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "set_allow_extensions",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "set_owner",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sha2_256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sha3_256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "share_object",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "share_object_impl",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "shift_left",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "singleton",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "singleton",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "size",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "some",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "split",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "split_and_transfer",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "split_vec",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sqrt",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sqrt_u128",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sub_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "sui_system_state",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "supply_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "supply_value",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "swap",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "swap_or_fill",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "swap_remove",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "take",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "ticket_digest",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "ticket_package",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "ticket_policy",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "timestamp_ms",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_ascii",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_ascii_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_u256",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "to_vec",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "total_supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "transfer",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "transfer_impl",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "transfer_ownership",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000000,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "treasury_into_supply",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "try_get",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "try_string",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "try_utf8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid_as_inner",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid_mut",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid_mut_as_owner",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid_to_address",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid_to_bytes",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "uid_to_inner",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "unset",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "update",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "update_description",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "update_icon_url",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "update_name",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "update_symbol",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "update_version",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "upgrade",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "upgrade_package",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "upgrade_policy",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "utf8",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000001,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "value",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "value_id",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "verify_groth16_proof",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "verify_groth16_proof_internal",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "version",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "withdraw",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "withdraw_all",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+    FnInfoKey {
+        fn_name: "zero",
+        mod_addr: 0000000000000000000000000000000000000000000000000000000000000002,
+    }: FnInfo {
+        is_test: false,
+    },
+}
