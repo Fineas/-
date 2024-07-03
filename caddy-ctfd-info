@@ -1,0 +1,9 @@
+https://ctf.blabla.com {
+	log {
+		output file /var/log/caddy/ctf-site.log
+	}
+
+	reverse_proxy localhost:8000
+}
+
+ctfd runs the nginx container on port 80, must kill just that container before running: `caddy run ./Caddyfile`
